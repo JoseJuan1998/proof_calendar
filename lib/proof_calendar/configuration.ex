@@ -3,9 +3,8 @@ defmodule ProofCalendar.Configuration do
   alias ProofCalendar.Repo
   alias ProofCalendar.Configuration.Calendar
 
-  def create_calendar(attrs) do
-    attrs
-    |> Calendar.changeset()
+  def create_calendar() do
+    Calendar.changeset()
     |> Repo.insert()
   end
 end

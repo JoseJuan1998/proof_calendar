@@ -9,13 +9,7 @@ defmodule ProofCalendar.Configuration.Calendar do
     timestamps()
   end
 
-  def changeset(attrs) do
-    %__MODULE__{}
-    |> cast(attrs, [])
-    |> cast_embed(:months)
-    |> validate_required([:months])
-  end
-
+  @spec changeset :: map
   def changeset() do
     %__MODULE__{}
     |> change(%{})
