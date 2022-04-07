@@ -63,8 +63,8 @@ defmodule ProofCalendar.Configuration.Calendar do
             list = [
               %{
               day_number: to_string(x),
-              start: "00:00 am",
-              end: "00:00 pm",
+              start: "00:00",
+              end: "00:00",
               is_off: true
             }
             ]
@@ -73,8 +73,8 @@ defmodule ProofCalendar.Configuration.Calendar do
             list = [
               %{
               day_number: to_string(x),
-              start: "08:30 am",
-              end: "06:00 pm",
+              start: "08:00",
+              end: "18:00",
               is_off: false
             }
             ]
