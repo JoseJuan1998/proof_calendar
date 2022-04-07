@@ -3,6 +3,7 @@ defmodule ProofCalendar.Repo.Migrations.CreateCalendar do
 
   def change do
     create table(:calendars) do
+      add :name, :string
       add :months, :json
 
       timestamps()

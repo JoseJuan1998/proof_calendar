@@ -4,6 +4,7 @@ defmodule ProofCalendar.Configuration.Calendar do
   alias ProofCalendar.Configuration.Calendar.Month
 
   schema "calendars" do
+    field :name, :string
     embeds_many :months, Month
 
     timestamps()
@@ -13,6 +14,7 @@ defmodule ProofCalendar.Configuration.Calendar do
   def changeset() do
     %__MODULE__{}
     |> change(%{})
+    |> put_change(:name, "Basic")
     |> setup_months()
     |> cast_embed(:months)
   end
@@ -60,7 +62,7 @@ defmodule ProofCalendar.Configuration.Calendar do
           Date.day_of_week(new_date, :saturday) == 1 or Date.day_of_week(new_date, :sunday) == 1->
             list = [
               %{
-              day: to_string(x),
+              day_number: to_string(x),
               start: "00:00 am",
               end: "00:00 pm",
               is_off: true
@@ -70,7 +72,7 @@ defmodule ProofCalendar.Configuration.Calendar do
           true ->
             list = [
               %{
-              day: to_string(x),
+              day_number: to_string(x),
               start: "08:30 am",
               end: "06:00 pm",
               is_off: false
